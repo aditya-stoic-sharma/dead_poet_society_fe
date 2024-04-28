@@ -10,8 +10,16 @@ export default function Shabdarth() {
     Navigate("/Homepage")
   }
 
+
   const context = useContext(PoetryContext);
   const { getPoems, poem, addPoem } = context;
+
+const kosh =useNavigate();
+
+const mkosh = ()=>{
+  kosh('/Shabdkosh');
+}
+
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -68,7 +76,7 @@ export default function Shabdarth() {
     // console.log(showPopup);
 
     setShowPopup(!showPopup);
-    console.log(showPopup);
+    // console.log(showPopup);
 
     if (showPopup === true)
       document.body.style.overflow = "";
@@ -89,6 +97,7 @@ export default function Shabdarth() {
   };
 
 
+
   return (
 
     <div className='main'>
@@ -99,7 +108,7 @@ export default function Shabdarth() {
 
         <h1 className='text-3xl font-serif'>Shabdarth</h1>
 
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtVoSui3gOAhWucHNkFj_0h9SMgNFccA5L36H0CpISdqiI78wDEWb8GYejN22Ksgt5pJw&usqp=CAU" alt="" className='h-10 w-10 mr-5 rounded-full' />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtVoSui3gOAhWucHNkFj_0h9SMgNFccA5L36H0CpISdqiI78wDEWb8GYejN22Ksgt5pJw&usqp=CAU" alt="" onClick={mkosh} className='h-10 w-10 mr-5 rounded-full' />
       </header>
 
 
@@ -111,6 +120,7 @@ export default function Shabdarth() {
           <div key={index} className='  w-3/4 h-[300px] border overflow-y-auto rounded-xl m-10 border-black'>
             <div className='bg-white   h-4/5'>
               <p className='text-black font-mono p-20 '>{d.poetryData}</p>
+
             </div>
             <div className='bg-yellow-600  flex justify-evenly items-center h-1/5'>
 

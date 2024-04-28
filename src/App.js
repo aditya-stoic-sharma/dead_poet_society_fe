@@ -16,8 +16,14 @@ import {
 } from "react-router-dom";
 import Signup from './components/Signup';
 import Shabdarth from './components/Shabdarth';
+
 import ShabdKosh from './ShabdKosh';
 import PoetryState from './Context/poetry/poetryState';
+// import ShabdKosh from './ShabdKosh';
+import ShabdKosh from './components/ShabdKosh';
+import MoreDetails from './components/MoreDetails';
+import Cart from './components/Cart';
+
 
 function App() {
 
@@ -64,6 +70,11 @@ function App() {
 
 
 
+              <Route path='/Moredetails' element={<MoreDetails/>}/>
+
+              <Route path='/Cart' element={<Cart/>}/>
+
+             
 
           </Routes>
 
