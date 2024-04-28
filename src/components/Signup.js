@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
+
+  const navigate = useNavigate();
+
+  const [credentail, setCredential] = useState({ name: '', email: '', password: '' });
+
+  const onChange = (e) => {
+    setCredential({ ...credentail, [e.target.name]: e.target.value });
+  }
+
+  const handleRegister = async () => {
+    const response = await fetch("http://localhost:5000/api/auth/createuser", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name: credentail.name, email: credentail.email, password: credentail.password })
+    });
+
+    const json = await response.json();
+    if (json.success) {
+      localStorage.setItem('token', json.authtoken);
+      navigate('/Login')
+    }
+    else {
+      console.log(json);
+      alert(`invalid credentials`);
+    }
+  }
   return (
     <div className=' flex justify-center items-center h-screen'>
       <div className='flex justify-center items-center w-3/4 h-screen '>
@@ -13,26 +42,26 @@ export default function Signup() {
           <div className='space-y-5'>
             <div className='flex flex-col items-center space-y-3'>
               <label>Name</label>
-              <input type="text" className='text-center' placeholder='Name'/>
+              <input type="text" className='text-center' placeholder='Name' name='name' onChange={onChange} value={credentail.name} />
             </div>
 
 
             <div className=' flex flex-col items-center  space-y-3'>
               <label >E-mail Id</label>
-              <input type="text" placeholder='E-mail Id' className='text-center' />
+              <input type="text" placeholder='E-mail Id' className='text-center' name='email' onChange={onChange} value={credentail.email} />
             </div>
 
 
             <div className='flex flex-col items-center space-y-3'>
               <label>Password</label>
-              <input type="password" className='text-center' placeholder='Password' />
+              <input type="password" className='text-center' placeholder='Password' name='password' value={credentail.password} onChange={onChange} />
             </div>
 
-            
+
           </div>
 
           <div className='flex justify-center'>
-            <Link to="/Login"><button className='border border-black bg-yellow-300 px-3 p-2 rounded-md transition-transform duration-300 ease-in-out hover:scale-125'>Sign-Up</button></Link>
+            <button className='border border-black bg-yellow-300 px-3 p-2 rounded-md transition-transform duration-300 ease-in-out hover:scale-125' onClick={handleRegister}>Sign-Up</button>
           </div>
 
         </div>
