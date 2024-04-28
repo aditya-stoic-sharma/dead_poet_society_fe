@@ -9,30 +9,36 @@ export default function Navbar(props) {
   const logged=()=>{
         navigate("/Login");
   }
+
+  const carty = useNavigate();
+  const Cart = ()=>
+  {
+     carty("/Cart");
+  }
  
   return (
     
     <div style={{backgroundColor : props.mode==='dark'?'#C19A6B':'gray'}} className='sticky top-0 z-10'>
       
       {/* Upper-Navbar */}
-        <div  style={{backgroundColor : props.mode==='dark'?'#B87333' : 'black'}} className={`Upper-Nav flex  justify-evenly     h-16 items-center `}>
+        <div  style={{backgroundColor : props.mode==='dark'?'#B87333' : 'black'}} className={`Upper-Nav flex  justify-between     h-16 items-center `}>
 
-          <div className='logo cursor-pointer '>
+          <div className='logo cursor-pointer ml-10  '>
 
                 <img src="https://static.vecteezy.com/system/resources/previews/008/909/270/non_2x/dps-logo-dps-letter-dps-letter-logo-design-initials-dps-logo-linked-with-circle-and-uppercase-monogram-logo-dps-typography-for-technology-business-and-real-estate-brand-vector.jpg" alt="" className='logo rounded-full border  border-white h-12 w-12' /> 
 
           </div>
 
 
-          < div className='w-40  flex items-center justify-between rightNav'>
+          < div className='w-40  flex mr-96 space-x-16 rightNav'>
 
                   <div>
-                  <input type="text" className='border border-stone-600   text-center rounded-xl  h-7 '  placeholder='search' />
+                  <input type="text" className='border border-stone-600   text-center rounded-xl  h-7 mt-1'  placeholder='search' />
                   </div>
 
 
        
-                    <img src="https://t4.ftcdn.net/jpg/07/53/30/87/240_F_753308712_A0o7T6YvhL6TZnhY8GKX0PDalmcJa0PL.jpg" alt="" className='h-10 w-10  cursor-pointer rounded-full '/>
+                    <img onClick={Cart} src="https://t4.ftcdn.net/jpg/07/53/30/87/240_F_753308712_A0o7T6YvhL6TZnhY8GKX0PDalmcJa0PL.jpg" alt="" className='h-10 w-10  cursor-pointer rounded-full '/>
                
                   
 

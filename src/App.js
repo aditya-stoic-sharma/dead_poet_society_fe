@@ -16,7 +16,10 @@ import {
 } from "react-router-dom";
 import Signup from './components/Signup';
 import Shabdarth from './components/Shabdarth';
-import ShabdKosh from './ShabdKosh';
+// import ShabdKosh from './ShabdKosh';
+import ShabdKosh from './components/ShabdKosh';
+import MoreDetails from './components/MoreDetails';
+import Cart from './components/Cart';
 
 
 function App() {
@@ -60,6 +63,10 @@ const toggle=()=>{
               <Route path='/Shabdarth' element={<Shabdarth/>}/>
 
               <Route path='/Shabdkosh' element={<ShabdKosh/>}/>
+
+              <Route path='/Moredetails' element={<MoreDetails/>}/>
+
+              <Route path='/Cart' element={<Cart/>}/>
 
              
 

@@ -70,6 +70,12 @@ const back=()=>{
   
 }
 
+const kosh =useNavigate();
+
+const mkosh = ()=>{
+  kosh('/Shabdkosh');
+}
+
 
 
 const[islike , setislike] = useState("false");
@@ -118,7 +124,7 @@ const popup=()=>{
     // console.log(showPopup);
     
     setShowPopup(!showPopup);
-    console.log(showPopup);
+    // console.log(showPopup);
 
     if(showPopup===true)
     document.body.style.overflow = "";
@@ -130,6 +136,7 @@ const popup=()=>{
 const [poetryText, setPoetryText] = useState('');
 
 const addPoetry = (text) => {
+  
   const newData = [...dataWithLikes];
   newData.push({ p:text, likes: 0 });
   setDataWithLikes(newData);
@@ -148,7 +155,7 @@ const addPoetry = (text) => {
 
         <h1 className='text-3xl font-serif'>Shabdarth</h1>
 
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtVoSui3gOAhWucHNkFj_0h9SMgNFccA5L36H0CpISdqiI78wDEWb8GYejN22Ksgt5pJw&usqp=CAU" alt="" className='h-10 w-10 mr-5 rounded-full' />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtVoSui3gOAhWucHNkFj_0h9SMgNFccA5L36H0CpISdqiI78wDEWb8GYejN22Ksgt5pJw&usqp=CAU" alt="" onClick={mkosh} className='h-10 w-10 mr-5 rounded-full' />
       </header>
 
       
@@ -158,7 +165,7 @@ const addPoetry = (text) => {
        {dataWithLikes.map((d , index )=>(
 
             <div  key={index} className='  w-3/4 h-[300px] border overflow-y-auto rounded-xl m-10 border-black'>
-            <div className='bg-white   h-4/5'>
+            <div className='bg-yellow-50  h-4/5'>
               <p className='text-black font-mono p-20 '>{d.p}</p>
             </div>
             <div className='bg-yellow-600  flex justify-evenly items-center h-1/5'>
