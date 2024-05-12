@@ -1,7 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
+
+  const homy = useNavigate();
+
+  const homepe = ()=>{
+    homy('/homepage');
+  }
+
   return (
     <div className=' flex justify-center items-center h-screen'>
       <div className='flex justify-center items-center w-3/4 h-screen '>
@@ -28,6 +36,15 @@ export default function Signup() {
               <input type="password" className='text-center' placeholder='Password' />
             </div>
 
+            {/* <div className='flex flex-col items-center space-y-3'> 
+              <label>username </label>
+              <input type="text" className='text-center' placeholder='username'/>
+          </div> */}
+
+            {/* <div className='flex flex-col item-center space-y-3'>
+              <label>ujjwal</label>
+              <input type="text" className='text-center' placeholder='ujjwaln' />
+            </div> */}
             
           </div>
 
@@ -45,7 +62,16 @@ export default function Signup() {
             <p className='text-wrap w-3/4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, dicta quaerat accusamus, quo aperiam commodi molestiae ipsa laborum dignissimos doloribus tempore delectus incidunt nisi perferendis at? Sit molestiae odit accusamus?</p>
           </div>
 
-          <Link to="/Login"><div><button className='border border-black bg-yellow-100 px-3 p-2 rounded-md transition-transform duration-300 ease-in-out hover:scale-125'>Sign In !</button></div></Link>
+          <Link to="/Login"><div><button className='border border-black bg-yellow-100 px-3 p-2 rounded-full transition-transform duration-300 ease-in-out hover:scale-125'>Sign In !</button></div></Link>
+          
+
+         
+
+
+          {/* <div  onClick={homepe} className='h-10 w-40 flex justify-center items-center rounded-full hover:cursor-pointer bg-yellow-400'>
+            <button>CHECK IT HERE </button>
+          </div> */}
+       
 
         </div>
 

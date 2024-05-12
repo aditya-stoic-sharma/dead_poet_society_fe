@@ -14,7 +14,7 @@ function Slider_p() {
       url : "https://images.news18.com/ibnkhabar/uploads/2023/03/Jaun-Elia-Shayari.jpg"
     },
     {
-      url : "https://m.media-amazon.com/images/I/71sqRo6rjAL.jpg"
+      url : "https://e0.pxfuel.com/wallpapers/518/813/desktop-wallpaper-sad-sad-sad-shayari-heart-touching-love-for-your-mobile-tablet-explore-heart-touching-heart-touching-heart-background-don-t.jpg"
     }
   ];
 

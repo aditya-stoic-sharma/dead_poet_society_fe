@@ -4,42 +4,73 @@ import { useNavigate } from 'react-router-dom';
 
 const data = [
   {
-     p : `Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ipsum perspiciatis ex hic sunt exercitationem ad facere suscipit vero distinctio!` ,
+     p : `Mera ek sher Teri hr baat se bhtr hoga..
+
+          Mera hr din Teri hr raat se behtar hoga...
+          
+          Tum dekhna apni in bewafa nazro se ...
+          
+          Mera janaza bhi teri baarat se behtar hoga...` ,
 
      likes : 67 
   },
 
   {
-    p : `Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ipsum perspiciatis ex hic sunt exercitationem ad facere suscipit vero distinctio!` , 
+    p : `Yha takiye bheeg rhe hai khaare paani se..
+          Jb se ek kirdaar alg hua h kahaani h..
+          
+          Mai yha kisi ladki ki taraf nazar utha kr nhi dekhta .
+          Aur waah vo apna lehanga Mila rhi h kisi ki sherwani se` , 
 
     likes : 56
  },
 
  {
-  p : `Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ipsum perspiciatis ex hic sunt exercitationem ad facere suscipit vero distinctio!` , 
+  p : `Vo mile to ye poochna hai mujhe ab bhi hu tere amaan me kya..
+
+      Yu jo taakta hai aasman ko tu ..koi rhta hai aasman me kya..
+      
+      Aur ye mujhe chain kyu nhi aata..ek hi shaksh tha jahaan me kya..` , 
 
   likes :78
 },
 
 {
-  p : `Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ipsum perspiciatis ex hic sunt exercitationem ad facere suscipit vero distinctio!` , 
+  p : `Bharam rkha h tere hizra ka vrna kya hota h...
+
+        Mai rone pe aa jau to jharna kya hota h...
+        
+        Maut to meri muthi me h teri khaatir...
+        
+        Isse bhi aage ja skta hu mrna kya hota hai` , 
 
   likes : 67
 },
 
 {
-  p : `Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ipsum perspiciatis ex hic sunt exercitationem ad facere suscipit vero distinctio!` , 
+  p : `Tum hakikat nhi  ..hasrat ho..
+
+        Jo mile khwaab me vo daulat ho..
+        
+        kis tarah chod du tumhe jaana..tum meri zindagi ki aadat ho..
+        
+        daastaan khtm hone vaali hai...tum meri aakhri mohabbat ho...` , 
 
   likes :90
 },
 
 {
-  p : `Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ipsum perspiciatis ex hic sunt exercitationem ad facere suscipit vero distinctio!`, 
+  p : `Kaise usne ye sb kuch merse chipkr badla...
+
+      Chehra badla ...raasta badla....bd me ghr badla..
+      
+      Mai jiske baare me kehta tha logon se naam badal dena mera...agr vo shaksh badla`, 
   likes:98
 },
 
 {
-  p: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima autem quas voluptate cumque molestiae nihil cum consequuntur! Aliquam qui minima minus! Autem architecto quas repellendus maiores deserunt perferendis, reprehenderit dolor dignissimos, ducimus perspiciatis nostrum! Autem ea ipsa, dolor ducimus, sed corrupti, animi quasi sit aspernatur asperiores quia veniam facilis commodi.` , 
+  p: `Mere 2-4 khwaab hai jinhe mai aasma se dur chahta hu....
+  Zindagi chahe gum naam rhe..pr maut mai mashoor chahta hu` , 
 
   likes : 65
 } ,  
@@ -75,6 +106,7 @@ const kosh =useNavigate();
 const mkosh = ()=>{
   kosh('/Shabdkosh');
 }
+
 
 
 
@@ -193,9 +225,9 @@ const addPoetry = (text) => {
     
       {/*POP UP PAGE   */}
 
-   {showPopup  && <div className=' h-full w-screen  backdrop-blur-md absolute border-b-slate-600 z-10 top-0'>
+   {showPopup  && <div className=' h-full w-screen  backdrop-blur-md fixed  border-b-slate-600 z-10 top-0'>
 
-        <div className=' bg-yellow-50 rounded-lg shadow-slate-500 shadow-lg top-1/4 left-[300px]  w-3/5 h-96 z-20 absolute  overflow-y-auto'>
+        <div className=' bg-yellow-50 rounded-lg shadow-slate-500 shadow-lg top-1/4 left-[300px]  w-3/5 h-96 z-20 relative  overflow-y-auto'>
 
           <div className=' flex justify-between'>
              <div></div>
