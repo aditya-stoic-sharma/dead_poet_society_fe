@@ -23,6 +23,9 @@ import PoetryState from './Context/poetry/poetryState';
 import ShabdKosh from './components/ShabdKosh';
 import MoreDetails from './components/MoreDetails';
 import Cart from './components/Cart';
+import Payment from './components/Payment';
+import DPS from './components/DPS';
+import Aboutus from './components/Aboutus';
 
 
 function App() {
@@ -73,6 +76,12 @@ function App() {
               <Route path='/Moredetails' element={<MoreDetails/>}/>
 
               <Route path='/Cart' element={<Cart/>}/>
+
+              <Route path='/Payment' element={<Payment/>}/>
+
+              <Route path='/Dead' element={<DPS/>}/>
+
+              <Route path='/Aboutus' element={<Aboutus/>}/>
 
              
 

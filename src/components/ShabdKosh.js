@@ -101,7 +101,7 @@ export default function ShabdKosh() {
   const details = useNavigate();
 
   const godetails=(d)=>{
-    setSelectedBook(d);
+    // setSelectedBook(d);
     details('/Moredetails' , { state: { d } });
   }
 
@@ -124,9 +124,28 @@ export default function ShabdKosh() {
     document.body.style.overflow = "hidden";
   }
 
-  return (
-    <div>
+  const[data , setdata]=useState(books);
 
+  const[bookname , setbookname] = useState('');
+  const[price , setprice]=useState('');
+  const[language , setlanguage]=useState('');
+  const[description , setdescription]= useState('');
+
+  const addbook = (bookname, price, language, description) => {
+    console.log("Adding book:", bookname, price, language, description);
+    const newdata = [...data];
+    newdata.push({ name: bookname, price: price, language: language, description: description });
+    console.log("New data:", newdata);
+    setdata(newdata);
+    enablepop();
+  }
+  
+
+  return (
+    <div className='sticky top-0'>
+
+
+    
       <header className='text-center sticky top-0 flex items-center justify-between h-14 m-auto bg-yellow-700 border z-10 border-black'>
             <img
               src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1HVasfT-jTGxQ3HbknNgD4-COSX8EPCmrT68kFnGQyK-grSFMUj2AvXcJrPo37jEJqkM&usqp=CAU'
@@ -145,7 +164,7 @@ export default function ShabdKosh() {
 
       {/* beech ka system */}
         <div className='h-screen gap-10 overflow-y-auto grid text-center my-10 grid-cols-4 '>
-          {books.map((d) => (
+          {data.map((d) => (
             <div className=' border ml-10 bg-yellow-50 transition-transform hover:shadow-2xl  hover:scale-125 duration-300 hover:bg-yellow-100 hover: cursor-pointer border-yellow-300 rounded-2xl h-80 w-56 ml-10 mt-10'>
               <div className=' flex justify-center items-center m-2 '>
                 <img
@@ -170,6 +189,7 @@ export default function ShabdKosh() {
         </div>
 
 
+         
 
 
         <footer onClick={enablepop} className=' irshaad sticky bottom-0 cursor-pointer'>
@@ -180,7 +200,7 @@ export default function ShabdKosh() {
 
 
             {/*pop up vaala scene  */}
-   {showadd  && <div className=' h-screen w-screen  backdrop-blur-md absolute border-b-slate-600 z-10 top-0'>
+   {showadd  && <div className=' h-screen w-screen  backdrop-blur-md  fixed flex justify-center items-center border-b-slate-600 z-10 top-0'>
 
             <div className=' bg-yellow-50 rounded-lg shadow-slate-500 shadow-lg top-1/4 left-[300px]  w-3/5 h-96 z-20 absolute  overflow-y-auto'>
 
@@ -189,35 +209,32 @@ export default function ShabdKosh() {
                 <div  ><img src="https://png.pngtree.com/png-clipart/20220603/original/pngtree-flat-x-cross-mark-button-in-red-color-and-white-line-png-image_7900019.png" alt="" onClick={enablepop} className='h-12 w-12 m-5 cursor-pointer  ' /></div>
               </div>
 
-              <div className='text-center gap-5'>
-                  <div>
-                    <label> Name of The Book :</label>
-                    <input type="text" />
+              <div className='text-center space-y-5 space-x-5'>
+                  <div className='space-x-5'>
+                    <label className=''> Name of The Book :</label>
+                    <input  value={bookname} onChange={(e)=>setbookname(e.target.value)} className=" h-10 w-60    rounded-lg text-center" type="text" placeholder='Book Name' />
                   </div>
 
-                  <div>
-                    <label> Image The Book :</label>
-                    <input type="file" />
-                  </div>
+              
 
-                  <div>
+                  <div className='space-x-12'> 
                     <label> Price of The Book :</label>
-                    <input type="text" />
+                    <input  value={price} onChange={(e)=>setprice(e.target.value)} className=" h-10 w-60 rounded-lg text-center" type="text" placeholder='Price of Book' />
                   </div>
 
-                  <div>
+                  <div className='space-x-5' >
                     <label> Language of The Book :</label>
-                    <input type="text" />
+                    <input  value={language} onChange={(e)=>setlanguage(e.target.value)} className=" h-10 w-60 rounded-lg text-center" type="text"placeholder='Language of Book' />
                   </div>
 
-                  <div>
+                  <div className='space-x-5'>
                     <label> Description of The Book :</label>
-                    <input type="text" />
+                    <input value={description} onChange={(e)=>setdescription(e.target.value)} className=" h-10 w-60 rounded-lg text-center" type="text" placeholder='Description'/>
                   </div>
               </div>
 
               <div className='text-center m-10'>
-                <button  className='h-14 w-24 text-xl font-serif font-bold rounded-2xl text-black bg-yellow-700'>Add Book</button>
+                <button  onClick={()=>addbook(bookname , price , language , description)} className='h-14 w-24 text-xl font-serif font-bold rounded-2xl text-black bg-yellow-700'>Add Book</button>
               </div>
 
             </div>

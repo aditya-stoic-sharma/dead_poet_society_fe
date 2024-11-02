@@ -3,6 +3,100 @@ import { useNavigate } from 'react-router-dom';
 import PoetryContext from '../Context/poetry/PoetryContext';
 
 
+<<<<<<< HEAD
+const data = [
+  {
+     p : `Mera ek sher Teri hr baat se bhtr hoga..
+
+          Mera hr din Teri hr raat se behtar hoga...
+          
+          Tum dekhna apni in bewafa nazro se ...
+          
+          Mera janaza bhi teri baarat se behtar hoga...` ,
+
+     likes : 67 
+  },
+
+  {
+    p : `Yha takiye bheeg rhe hai khaare paani se..
+          Jb se ek kirdaar alg hua h kahaani h..
+          
+          Mai yha kisi ladki ki taraf nazar utha kr nhi dekhta .
+          Aur waah vo apna lehanga Mila rhi h kisi ki sherwani se` , 
+
+    likes : 56
+ },
+
+ {
+  p : `Vo mile to ye poochna hai mujhe ab bhi hu tere amaan me kya..
+
+      Yu jo taakta hai aasman ko tu ..koi rhta hai aasman me kya..
+      
+      Aur ye mujhe chain kyu nhi aata..ek hi shaksh tha jahaan me kya..` , 
+
+  likes :78
+},
+
+{
+  p : `Bharam rkha h tere hizra ka vrna kya hota h...
+
+        Mai rone pe aa jau to jharna kya hota h...
+        
+        Maut to meri muthi me h teri khaatir...
+        
+        Isse bhi aage ja skta hu mrna kya hota hai` , 
+
+  likes : 67
+},
+
+{
+  p : `Tum hakikat nhi  ..hasrat ho..
+
+        Jo mile khwaab me vo daulat ho..
+        
+        kis tarah chod du tumhe jaana..tum meri zindagi ki aadat ho..
+        
+        daastaan khtm hone vaali hai...tum meri aakhri mohabbat ho...` , 
+
+  likes :90
+},
+
+{
+  p : `Kaise usne ye sb kuch merse chipkr badla...
+
+      Chehra badla ...raasta badla....bd me ghr badla..
+      
+      Mai jiske baare me kehta tha logon se naam badal dena mera...agr vo shaksh badla`, 
+  likes:98
+},
+
+{
+  p: `Mere 2-4 khwaab hai jinhe mai aasma se dur chahta hu....
+  Zindagi chahe gum naam rhe..pr maut mai mashoor chahta hu` , 
+
+  likes : 65
+} ,  
+
+{
+
+  p : `yaaro kuch to zikr kro uski kayaamat baaho ka .....
+  vo jo simatata hoga unme vo to mr jaata hoga` ,
+
+  likes : 45 
+} , 
+
+{
+   p: `tum jb aaogi to khoya hua paogi mujhe...
+   meri tanhaai me khwaabon ke siwa kuch nhi.....
+   mere kamre ko sajaane ki tamanna hai tumhe...
+   mere kamre me kitaabon ke siwa kuch nhi...` , 
+
+   likes : 23 
+}
+];
+
+=======
+>>>>>>> 78634e30cae1aeab4ccc9d6423ac4c15223c2e7d
 export default function Shabdarth() {
 
   const Navigate = useNavigate();
@@ -21,6 +115,15 @@ const mkosh = ()=>{
 }
 
 
+<<<<<<< HEAD
+
+
+const[islike , setislike] = useState("false");
+
+// const [showOverlay, setShowOverlay] = useState(false);
+
+// const [showLastDiv, setShowLastDiv] = useState(false);
+=======
   useEffect(() => {
     if (localStorage.getItem('token')) {
       console.log(localStorage.getItem('token'));
@@ -31,6 +134,7 @@ const mkosh = ()=>{
       Navigate("/login");
     }
   }, []);
+>>>>>>> 78634e30cae1aeab4ccc9d6423ac4c15223c2e7d
 
 
   const [islike, setislike] = useState("false");
@@ -147,9 +251,13 @@ const mkosh = ()=>{
 
       {/*POP UP PAGE   */}
 
+<<<<<<< HEAD
+   {showPopup  && <div className=' h-full w-screen  backdrop-blur-md fixed  border-b-slate-600 z-10 top-0'>
+=======
       {showPopup && <div className=' h-full w-screen  backdrop-blur-md absolute border-b-slate-600 z-10 top-0'>
+>>>>>>> 78634e30cae1aeab4ccc9d6423ac4c15223c2e7d
 
-        <div className=' bg-yellow-50 rounded-lg shadow-slate-500 shadow-lg top-1/4 left-[300px]  w-3/5 h-96 z-20 absolute  overflow-y-auto'>
+        <div className=' bg-yellow-50 rounded-lg shadow-slate-500 shadow-lg top-1/4 left-[300px]  w-3/5 h-96 z-20 relative  overflow-y-auto'>
 
           <div className=' flex justify-between'>
             <div></div>

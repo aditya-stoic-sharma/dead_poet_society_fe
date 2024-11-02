@@ -5,6 +5,8 @@ import { useState , useEffect } from 'react';
 // import Books from './Books';
 import { useLocation } from 'react-router-dom';
 
+
+
 const Books = [
   {
      r :` Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam nostrum est minus in laboriosam, veritatis inventore unde rem at beatae.`
@@ -41,14 +43,33 @@ const Books = [
 export default function MoreDetails() {
 
   const location = useLocation();
-  // console.log('Location state:', location.state);
+ 
   const book = location.state.d ; 
 
-  const cart = useNavigate();
-  const carty=()=>{
-    cart('/Cart');
 
-  }
+
+  const [update, setupdate] = useState([]);
+  
+  useEffect(() => {
+    setupdate([...update , book]);
+  }, []);
+
+  
+
+  const cart = useNavigate();
+  const [cartBooks, setCartBooks] = useState([]);
+
+ 
+  const addToCart = (book) => {
+    
+    // setCartBooks((prevCartBooks) => [...prevCartBooks, book]);
+
+    cart('/cart');
+  };
+
+
+ const navigate = useNavigate();
+
 
   const back = useNavigate();
 
@@ -62,16 +83,21 @@ export default function MoreDetails() {
   const [ddata , setddata] = useState(Books);
   const[ thank , setthank] = useState(false);
 
+
+  // cross pe click ho
   const showreview = ()=>{
     setreview(!review);
     setbutton(!button);
+    settexty('');
   }
 
+
+  // add review pe trigger hone vaala function
   const addreview = (texty) => {
     const newData = [...ddata];
     newData.push({ r:texty});
     setddata(newData);
-    console.log(ddata);
+    // console.log(ddata);
     settexty('');
     setbutton(false);
     setreview(false);
@@ -79,9 +105,6 @@ export default function MoreDetails() {
     setTimeout(()=>setthank(false),1000);
   };
 
-  useEffect(() => {
-    console.log(ddata);
-  }, [ddata]);
   
   
   return (
@@ -90,7 +113,8 @@ export default function MoreDetails() {
 
 
       <header className='text-center sticky top-0  flex items-center justify-between h-14 m-auto bg-yellow-700 border border-black'>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1HVasfT-jTGxQ3HbknNgD4-COSX8EPCmrT68kFnGQyK-grSFMUj2AvXcJrPo37jEJqkM&usqp=CAU" onClick={backy} className='h-10   w-10 ml-5 cursor-pointer rounded-full'  alt="" />
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1HVasfT-jTGxQ3HbknNgD4-COSX8EPCmrT68kFnGQyK-grSFMUj2AvXcJrPo37jEJqkM&usqp=CAU" 
+              onClick={backy} className='h-10   w-10 ml-5 cursor-pointer rounded-full'  alt="" />
 
               <h1 className='text-3xl font-serif'>Book Details</h1>
 
@@ -98,6 +122,8 @@ export default function MoreDetails() {
 
              
       </header>
+
+   
 
       {thank && 
 
@@ -130,11 +156,11 @@ export default function MoreDetails() {
           <h1  className='font-bold  mb-9 text-3xl font-mono mt-10' >Reviews : </h1>
           <ul className=' space-y-10 list-disc'>
 
-            {ddata.map((d)=>(
+            {ddata.map((dp)=>(
 
                   <li>
                   <h4 className='text-xl font-bold'>User Name </h4>
-                  <p>{d.r}</p>
+                  <p>{dp.r}</p>
                   </li>
              ))}             
 
@@ -175,7 +201,7 @@ export default function MoreDetails() {
         <div className=' text-center border font-serif  border-l-0 border-t-0 border-b-black text-2xl w-auto w-screen font-medium pb-3 bg-yellow-700  pt-3 '>
                <h3>Buy Now !</h3>
           </div>
-          <div  onClick={carty} className=' text-center border  font-serif border-r-0  border-t-0  border-b-black text-2xl w-auto w-screen font-medium pb-3  pt-3 bg-yellow-700 '>
+          <div  onClick={()=>addToCart(book)} className=' text-center border  font-serif border-r-0  border-t-0  border-b-black text-2xl w-auto w-screen font-medium pb-3  pt-3 bg-yellow-700 '>
              <h3>Add To Cart</h3>
           </div>
         </footer>
